@@ -11,22 +11,20 @@
 
 $id=$_GET['id'];
 
-$req = $bdd ->prepare("SELECT id_acteur FROM jouer WHERE id_film=$id");
+$req = $bdd ->prepare("SELECT f.id_film, f.titre, a.id_acteur, a.nom, a.prenom, a.photo_acteur, j.id_film, j.id_acteur  
+                        FROM acteur a, Film f, jouer j  
+                        WHERE j.id_film = f.id_film
+                        AND j.id_acteur = a.id_acteur
+                        AND j.id_film = $id");
+                  
 $req ->execute();
+while($donnees = $req->fetch()){
 
-echo "BLABLA : ".$req->rowCount();  
-
-while($donnees= $req->fetch()){
-    $reqact = $bdd ->prepare("SELECT * FROM acteur WHERE id_acteur= ?");
-    $reqact ->execute([$donnees->id_acteur]);
-    $act = $reqact->fetch();
-    var_dump($act->nom);
-    var_dump($donnees);
 
 ?>
     <div class="acteur">
-        <img class="img-acteur" src=<?php echo $act['photo_acteur']; ?> alt="">
-        <div><p><?php echo $act['nom']."   ". $act['prenom']; ?></p></div>
+        <img class="img-acteur" src=<?php echo $donnees['photo_acteur']; ?> alt="">
+        <div><p><?php echo $donnees['nom']."   ". $donnees['prenom']; ?></p></div>
     </div>
 
 <?php } ?>
