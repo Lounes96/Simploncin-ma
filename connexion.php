@@ -48,12 +48,12 @@ include 'include/nav.php'; ?>
     <div id="container">
       
 
-        <form action="admin/traitement.php" method="POST">
+        <form action="admin\co.php" method="POST">
             <h2>Connexion</h2>
 
 
             <label><b>Email d'utilisateur</b></label>
-            <input class="login" type="text" placeholder="Mail d'utilisateur" name="mail" required> <br>
+            <input class="login" type="text" placeholder="pseudo" name="pseudo" required> <br>
 
             <label><b>Mot de passe</b></label>
             <input class="login"  type="password" placeholder="Mot de passe" name="mot_de_passe" required><br>
@@ -69,9 +69,27 @@ include 'include/nav.php'; ?>
                     echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
             }
             ?> 
+            </form>
 
+</div>
+<div id="container">
+        
+        <form action="admin\create.php" method="POST">
+            <h2>Inscription</h2>
 
-        </form>
+            
+
+            <label><b>Pseudo</b></label>
+            <input class="login" type="text" placeholder="pseudo" name="pseudo" required> <br>
+
+            <label><b>Email d'utilisateur</b></label>
+            <input class="login" type="email" placeholder="mail" name="mail" required> <br>
+
+            <label><b>Mot de passe</b></label>
+            <input class="login"  type="password" placeholder="Mot de passe" name="mot_de_passe" required><br>
+
+            <input class="ok"type="submit" name='INSCRIPTION' value='INSCRIPTION'> <br>
+            </form>
     </div>
 
 
