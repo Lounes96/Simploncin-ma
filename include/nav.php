@@ -53,7 +53,15 @@
 
                 
                 <li><a href="catalogue.php">Films</a></li>
-                <li><a href="connexion.php">Connexion</a></li>
+                <?php if (!(isset($_SESSION['user']))) : ?>
+                <li><a href="connexion.php">Connexion/Inscription</a></li>
+                <?php else : ?>
+                    <li><a href="deco.php">Deconexion</a>
+                        <a href="include/formADMIN.php">
+                            <h4> Bonjour <?php echo $_SESSION['user'] ?></h4>
+                        </a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
