@@ -48,7 +48,7 @@
 
                 while ( $donnees = $req->fetch() ){ ?>
 
-                  <option value="<?= $donnees['id_genre']; ?>"> Genre : <?= $donnees['nom']; ?> | id genre : <?= $donnees['id_genre']; ?> </option>
+                  <option value="<?= $donnees['id_genre']; ?>"> Genre : <?= $donnees['nom']; ?> : <?= $donnees['id_genre']; ?> </option>
 
 
               <?php  }
